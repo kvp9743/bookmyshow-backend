@@ -6,12 +6,18 @@ import cookieParser from "cookie-parser";
 import { movieRouter } from "./Routes/movieRouter.js";
 import { theaterRouter } from "./Routes/theaterRouter.js";
 import { bookingRouter } from "./Routes/bookingRouter.js";
-
+import cors from "cors";
 const app = express();
 const port = process.env.PORT || 8080;
 
 app.use(express.json());
 app.use(cookieParser());
+app.use(
+  cors({
+    origin: process.env.FRONTEND_URL,
+    credentials: true,
+  }),
+);
 
 app.use("/api/user", userRouter);
 app.use("/api/user/movies", movieRouter);
