@@ -8,7 +8,7 @@ import { theaterRouter } from "./Routes/theaterRouter.js";
 import { bookingRouter } from "./Routes/bookingRouter.js";
 
 const app = express();
-const port = process.env.PORT;
+const port = process.env.PORT || 8080;
 
 app.use(express.json());
 app.use(cookieParser());
